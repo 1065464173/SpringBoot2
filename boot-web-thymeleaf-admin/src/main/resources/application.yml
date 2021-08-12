@@ -1,0 +1,67 @@
+spring:
+  jdbc:
+    template:
+      query-timeout: 3
+  datasource:
+    url: jdbc:mysql://localhost:3306/sxuet
+    username: root
+    password: liangzi.
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      #监控SpringBean
+      aop-patterns: top.sxuet.bootwebthymeleafadmin.*
+      #      配置监控页
+      stat-view-servlet:
+        enabled: true
+        login-username: admin
+        login-password: admin
+      #        监控web
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      #        过滤器配置
+      filter:
+        slf4j:
+          enabled: true
+        wall:
+          enabled: true
+          config:
+            drop-table-allow: false
+        stat:
+          enabled: true
+          slow-sql-millis: 1000
+          log-slow-sql: true
+  boot:
+    admin:
+      client:
+        url: http://localhost:8888
+        enabled: true
+#mybatis规则
+mybatis:
+  #  全局配置文件——和configuration不能同时存在，所以推荐直接舍弃mybatis自己的配置文件
+  # config-location: 'classpath:mybatis/spring-mybatis.xml'
+  #  mapper文件映射
+  #  mapper-locations: 'classpath:mybatis/mapper/*.xml'
+  configuration:
+    map-underscore-to-camel-case: true
+#  configuration:
+#    #开启驼峰命名
+#    map-underscore-to-camel-case: true
+
+#management是度偶有actuator的配置
+management:
+  endpoints:
+    enabled-by-default: true #默认开启所有监控端点
+    web:
+      exposure:
+        include: '*' #开启web暴露所有端点
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  appName: boot-admin
+  appVersion: 1.0.0
+  mavenProjectName: @project.artifactId@
+  mavenProjectVersion: @project.version@

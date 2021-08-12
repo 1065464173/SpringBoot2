@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Page</title>
+</head>
+<body>
+hello!this is a welcome page!
+<hr/>
+<ul>
+    <li>@PathVariable(路径变量)<a href="car/2/owner/sxuet?age=18&pass=123">/car/{id}/owner/{username}/params</a></li>
+    <li>@RequestHeader(路径变量)</li>
+    <li>@RequestParam(请求参数)</li>
+    <li>@CookieValue(获取cookie)</li>
+    <li>@RequestAttribute(获取请求体)</li>
+    <li>@MatrixVariable(矩阵变量)<a href="cars/sell;low=20;brand=byd,audi,yd"> /cars/{path;low=34;brand=byd,audi,yd}</a>
+    </li>
+</ul>
+<br>
+<form action="save" method="post">
+    <h2>save-post</h2>
+    用户名 <input type="text" name="name"/>
+    密码<input type="password" name="password">
+    <input type="submit">
+</form>
+<br>
+
+<form action="saveUser" method="post">
+    <h2>saveUser</h2>
+    id <input type="text" name="id"/>
+    name <input type="text" name="name"/>
+    age <input type="text" name="age">
+    <input type="submit">
+</form>
+</body>
+</html>
